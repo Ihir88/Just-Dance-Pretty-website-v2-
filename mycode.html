@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Dance Pretty | Downloads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Montserrat:wght@300;500;800&display=swap');
+
+        :root {
+            --jd-pink: #ff00ff;
+            --jd-purple: #7a00ff;
+            --jd-blue: #00f2ff;
+            --jd-yellow: #fff200;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #050110;
+            color: white;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(122, 0, 255, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.2) 0%, transparent 40%);
+        }
+
+        .font-jd { font-family: 'Unbounded', sans-serif; }
+
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.1;
+            background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%);
+            background-size: 40px 40px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            from { background-position: 0 0; }
+            to { background-position: 500px 500px; }
+        }
+
+        .song-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 4px solid transparent;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .song-card:hover {
+            transform: scale(1.05) rotate(-1deg);
+            border-color: var(--jd-blue);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .jd-btn {
+            background: linear-gradient(90deg, var(--jd-pink), var(--jd-purple));
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+            transition: all 0.2s;
+        }
+
+        .progress-container {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--jd-blue), var(--jd-yellow));
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .nav-item {
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            letter-spacing: -1px;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover { color: var(--jd-pink); }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="font-jd text-2xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-400">
+            JUST DANCE PRETTY
+        </div>
+        <div class="flex gap-8">
+            <a href="#" class="nav-item text-sm">HOME</a>
+            <a href="#" class="nav-item text-sm text-pink-500">DOWNLOADS</a>
+            <a href="#" class="nav-item text-sm">COMMUNITY</a>
+        </div>
+    </nav>
+
+    <header class="py-12 px-6 text-center">
+        <h1 class="font-jd text-5xl md:text-7xl font-black italic uppercase mb-2 tracking-tighter">SELECT <span class="text-blue-400">YOUR FILE</span></h1>
+        <div class="h-1 w-32 bg-yellow-400 mx-auto mb-10"></div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        
+        <!-- PC Build -->
+        <div class="song-card rounded-2xl p-6 flex flex-col justify-between" onclick="startDownload(this, 'https://drive.google.com/drive/folders/1Od6ZbyJedffGy0uMmb9KewMYnwmWfggu')">
+            <div>
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-blue-500 text-[10px] font-black px-2 py-1 rounded">PC</span>
+                    <i class="fas fa-desktop text-xl opacity-30"></i>
+                </div>
+                <h2 class="font-jd text-2xl font-black italic mb-2 leading-tight uppercase">Just Dance Pretty PC</h2>
+                <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-4">Size: 4.8 GB</p>
+            </div>
+            <div class="mt-4">
+                <div class="progress-container mb-4"><div class="progress-bar"></div></div>
+                <button class="jd-btn w-full py-3 text-sm font-black italic uppercase">Download Now</button>
+            </div>
+        </div>
+
+        <!-- Next Demo -->
+        <div class="song-card rounded-2xl p-6 flex flex-col justify-between" onclick="startDownload(this, 'https://drive.google.com/drive/folders/1TbdGAHxC-lFN24HvwQVZkFVZxom-jev0')">
+            <div>
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-purple-600 text-[10px] font-black px-2 py-1 rounded">DEMO PC</span>
+                    <i class="fas fa-bolt text-xl opacity-30"></i>
+                </div>
+                <h2 class="font-jd text-2xl font-black italic mb-2 leading-tight uppercase">Just Dance Next Demo</h2>
+                <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-4">Early Access</p>
+            </div>
+            <div class="mt-4">
+                <div class="progress-container mb-4"><div class="progress-bar"></div></div>
+                <button class="jd-btn w-full py-3 text-sm font-black italic uppercase">Get Access</button>
+            </div>
+        </div>
+
+        <!-- Wii U Pretty (Нова картка) -->
+        <div class="song-card rounded-2xl p-6 flex flex-col justify-between border-l-8 border-l-blue-400" onclick="startDownload(this, 'https://drive.google.com/drive/folders/17P-E6IjabX14TyvvqmOvT4vujZTOZz7v')">
+            <div>
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-blue-600 text-[10px] font-black px-2 py-1 rounded uppercase tracking-tighter">Console Edition</span>
+                    <i class="fas fa-gamepad text-xl opacity-30"></i>
+                </div>
+                <h2 class="font-jd text-2xl font-black italic mb-2 leading-tight uppercase">Just Dance Pretty Wii U</h2>
+                <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-4">Size: 1.2 GB</p>
+            </div>
+            <div class="mt-4">
+                <div class="progress-container mb-4">
+                    <div class="progress-bar"></div>
+                </div>
+                <button class="jd-btn w-full py-3 text-sm font-black italic uppercase" style="background: linear-gradient(90deg, #0093e9, #80d0c7);">Download Now</button>
+            </div>
+        </div>
+
+        <!-- Wii U 2026 Edition -->
+        <div class="song-card rounded-2xl p-6 flex flex-col justify-between border-l-8 border-l-yellow-400" onclick="startDownload(this, 'https://drive.google.com/drive/folders/1WMMsb-4W9fp-z3W17K3hWXg61QkMWNLM')">
+            <div>
+                <div class="flex justify-between items-start mb-4">
+                    <span class="bg-yellow-500 text-black text-[10px] font-black px-2 py-1 rounded uppercase">New Mod</span>
+                    <i class="fas fa-music text-xl opacity-30"></i>
+                </div>
+                <h2 class="font-jd text-2xl font-black italic mb-2 leading-tight uppercase">Just Dance 2026 Wii u Edition</h2>
+                <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-4">Size: 850 MB</p>
+            </div>
+            <div class="mt-4">
+                <div class="progress-container mb-4">
+                    <div class="progress-bar"></div>
+                </div>
+                <button class="jd-btn w-full py-3 text-sm font-black italic uppercase" style="background: linear-gradient(90deg, #fff200, #ff8c00); color: black;">Download Now</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-center py-10 opacity-50">
+        <p class="text-[10px] font-black uppercase tracking-[0.5em]">Press any key to dance</p>
+    </footer>
+
+    <script>
+        function startDownload(card, targetLink) {
+            const btn = card.querySelector('.jd-btn');
+            const progressContainer = card.querySelector('.progress-container');
+            const progressBar = card.querySelector('.progress-bar');
+
+            if (btn.disabled) return;
+            btn.disabled = true;
+            btn.innerText = 'PREPARING...';
+            progressContainer.style.display = 'block';
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 20; // Швидке заповнення
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    btn.innerText = 'REDIRECTING...';
+                    btn.style.background = '#22c55e';
+                    
+                    // Перехід за посиланням
+                    setTimeout(() => {
+                        window.location.href = targetLink;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Dance Pretty | Background Logic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Основні налаштування фону */
+        body {
+            background: #050110;
+            margin: 0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Контейнер для тренерів */
+        #coaches-layer {
+            position: fixed;
+            inset: 0;
+            z-index: -1; /* Завжди за контентом */
+            pointer-events: none;
+        }
+
+        .coach-sprite {
+            position: absolute;
+            width: 280px; /* Розмір персонажа */
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.4));
+            opacity: 0.7;
+            will-change: transform;
+        }
+
+        /* Додаткові ефекти фону */
+        .glow-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 50%, rgba(122, 0, 255, 0.15) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-overlay"></div>
+    <div id="coaches-layer"></div>
+
+    <!-- Твій існуючий контент сайту тут -->
+    <div class="relative z-10 text-white p-10 text-center">
+        <!-- Сюди вставляй свої картки та текст -->
+    </div>
+
+    <script>
+        // Масив прямих посилань на твої картинки
+        const coachAssets = [
+            'https://i.postimg.cc/VJy6MVzL/2343037b-709e-4898-9268-d60b8e1bd4b6-20251006-171150-0000.png',
+            'https://i.postimg.cc/VJy6MVzN/4209700d-1990-4f8c-8f9b-f01908e23253-20250903-201225-0000-(1).png',
+            'https://i.postimg.cc/FYjKxVKg/e4b10ae0-0bfa-4467-8daf-72ba74cf34bc-20250923-104255-0000.png',
+            'https://i.postimg.cc/0zpNC0NM/gamemode-btn-content-focus-party-coach-4-mask.png',
+            'https://i.postimg.cc/v4RB9NG1/Picsart-25-08-14-23-17-04-348-(1).png',
+            'https://i.postimg.cc/BjxvCBvK/Picsart-25-08-20-16-45-02-738-1.png',
+            'https://i.postimg.cc/DWnwp4W6/Picsart-25-09-03-23-18-28-378.png',
+            'https://i.postimg.cc/yk3xDH4w/Shewolf-jd2020-sticker.webp'
+        ];
+
+        function createBackgroundAnimation() {
+            const layer = document.getElementById('coaches-layer');
+            
+            coachAssets.forEach((src) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'coach-sprite';
+                layer.appendChild(img);
+
+                // Початкові випадкові координати
+                let posX = Math.random() * window.innerWidth;
+                let posY = Math.random() * window.innerHeight;
+                
+                // Випадкова швидкість та напрямок
+                let velX = (Math.random() - 0.5) * 1.5;
+                let velY = (Math.random() - 0.5) * 1.5;
+                
+                // Випадкова швидкість обертання
+                let rotation = Math.random() * 360;
+                let rotVel = (Math.random() - 0.5) * 0.5;
+
+                function move() {
+                    posX += velX;
+                    posY += velY;
+                    rotation += rotVel;
+
+                    // Логіка відскоку від країв екрану
+                    if (posX < -150 || posX > window.innerWidth - 100) velX *= -1;
+                    if (posY < -150 || posY > window.innerHeight - 100) velY *= -1;
+
+                    // Оновлення стилів через transform для кращої продуктивності
+                    img.style.transform = `translate(${posX}px, ${posY}px) rotate(${rotation}deg)`;
+                    
+                    requestAnimationFrame(move);
+                }
+                
+                move();
+            });
+        }
+
+        // Запуск анімації після завантаження сторінки
+        window.addEventListener('load', createBackgroundAnimation);
+    </script>
+</body>
+</html>
+
+
+
